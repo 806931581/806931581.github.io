@@ -877,29 +877,7 @@ request 请求模式：每次Ht
 
 
 
-{% elseif theme.gitalk.enable %}
-    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '656acd3eb681afb77532',
-        clientSecret: '0aab7fbc935353cbb1966926fcf964b80ecf3cd4',
-        repo: 'https://github.com/806931581/806931581.github.io',
-        owner: '806931581',
-        admin: 806931581,
-        id: '2019-08-07T09-25-00',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-{% endif %}
+    
 <script>
 (function(){
     var bp = document.createElement('script');
@@ -921,7 +899,7 @@ request 请求模式：每次Ht
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3.1k</span>
+                <span class="white-color">4.6k</span>
             
 
             
