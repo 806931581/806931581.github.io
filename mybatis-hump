@@ -4,11 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="初识Spring(一), Java, C++, Spring">
-    <meta name="description" content="Spring Bean 作用域
-singleton   单例模式：（默认值）在Spring IoC容器仅存在一个Bean实例
-prototype  原型模式： 每次从容器中调用Bean都会返回一个新实例。
-request 请求模式：每次Ht">
+    <meta name="keywords" content="MyBatis拦截器之下画线键值转驼峰, Java, C++, Spring">
+    <meta name="description" content="MyBatis拦截器之下画线键值转驼峰​        在使用MyBatis时，为了方便扩展而使用Map类型的返回值。使用Map作为返回值时，Map中的键值就是查询结果中的列名，而列名一般都是大写小写字母或者下画线形式，和Java中使用的驼">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +13,7 @@ request 请求模式：每次Ht">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>初识Spring(一) | 头秃眼瞎</title>
+    <title>MyBatis拦截器之下画线键值转驼峰 | 头秃眼瞎</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -263,13 +260,13 @@ request 请求模式：每次Ht">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        初识Spring(一)
+                        MyBatis拦截器之下画线键值转驼峰
                     </div>
                 </div>
             </div>
@@ -384,8 +381,8 @@ request 请求模式：每次Ht">
                                 <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/Spring/" target="_blank">
-                                <span class="chip bg-color">Spring</span>
+                            <a href="/tags/MyBatis/" target="_blank">
+                                <span class="chip bg-color">MyBatis</span>
                             </a>
                         
                     </div>
@@ -396,8 +393,8 @@ request 请求模式：每次Ht">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Spring/" class="post-category" target="_blank">
-                                Spring
+                            <a href="/categories/MyBatis/" class="post-category" target="_blank">
+                                MyBatis
                             </a>
                         
                     </div>
@@ -408,21 +405,21 @@ request 请求模式：每次Ht">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-07
+                    2019-08-18
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        653
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        2 分
                     </div>
                     
                 
@@ -438,132 +435,103 @@ request 请求模式：每次Ht">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Spring-Bean-作用域"><a href="#Spring-Bean-作用域" class="headerlink" title="Spring Bean 作用域"></a>Spring Bean 作用域</h1><ul>
-<li><strong>singleton   单例模式：（默认值）在Spring IoC容器仅存在一个Bean实例</strong></li>
-<li><strong>prototype  原型模式： 每次从容器中调用Bean都会返回一个新实例。</strong></li>
-<li>request 请求模式：每次Http请求都会创建一个新的Bean，仅使用于WebApplicationContext环境</li>
-<li>Session 会话模式：同一个Http Session 共享一个Bean， 不用的Session使用不同的Bean，仅使用于WebApplicationContext环境</li>
-<li>global-session模式：一般用于Portlet应用环境，该运用仅使用于WebApplicationContext环境</li>
-</ul>
-<h4 id="singleton-作用域："><a href="#singleton-作用域：" class="headerlink" title="singleton 作用域："></a>singleton 作用域：</h4><p>​    singleton是单例类型， 就是在创建起容器就同时自动创建了一个bean对象， 不管你是否使用， 他都存在了， 每次获取到的对象都是同一个对象。</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">scope</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>singleton<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token comment" spellcheck="true">&lt;!-- collaborators and configuration for this bean go here--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span></code></pre>
-<h4 id="prototype-作用域："><a href="#prototype-作用域：" class="headerlink" title="prototype 作用域："></a>prototype 作用域：</h4><p>​    它再我们创建容器的时候并没有实例化，而是我们获取bean的时候才去创建一个对象，而且每次获取到的对象都不是同一个对象。</p>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">scope</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>prototype<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token comment" spellcheck="true">&lt;!-- collaborators and configuration for this bean go here--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span></code></pre>
-<h1 id="Spring-Bean-生命周期"><a href="#Spring-Bean-生命周期" class="headerlink" title="Spring Bean 生命周期"></a>Spring Bean 生命周期</h1><blockquote>
-<p>定义安装和拆卸一个bean，声明 init-method 和destroy-method参数的。</p>
-<p>实例化bean时立即调用 init-methood 从容器中移除bean时调用 destroy-method</p>
-<p>Bean的生命周期可以表达为：Bean的定义—–Bean的初始化—Bean的使用—–Bean的销毁</p>
-</blockquote>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">scope</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>singleton<span class="token punctuation">"</span></span>
-      <span class="token attr-name">init-method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">destory-method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token comment" spellcheck="true">&lt;!-- collaborators and configuration for this bean go here--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span></code></pre>
-<h4 id="默认的初始化和销毁方法："><a href="#默认的初始化和销毁方法：" class="headerlink" title="默认的初始化和销毁方法："></a>默认的初始化和销毁方法：</h4><pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
-    <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
-    <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd<span class="token punctuation">"</span></span>
-    <span class="token attr-name">default-init-method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>init<span class="token punctuation">"</span></span> 
-    <span class="token attr-name">default-destroy-method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>destroy<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <h1 id="MyBatis拦截器之下画线键值转驼峰"><a href="#MyBatis拦截器之下画线键值转驼峰" class="headerlink" title="MyBatis拦截器之下画线键值转驼峰"></a>MyBatis拦截器之下画线键值转驼峰</h1><p>​        在使用MyBatis时，为了方便扩展而使用Map类型的返回值。使用Map作为返回值时，Map中的键值就是查询结果中的列名，而列名一般都是大写小写字母或者下画线形式，和Java中使用的驼峰形式不一致，为了保证在使用map时属性一致，可以对结果进行特殊处理——使用拦截器将不同格式的列名转换为Java中的驼峰形式。实现代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> tk<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>simple<span class="token punctuation">.</span>plugin<span class="token punctuation">;</span>
 
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>...<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-       <span class="token comment" spellcheck="true">&lt;!-- collaborators and configuration for this bean go here --></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span>
-</code></pre>
-<h1 id="Spring-Bean-后置处理器"><a href="#Spring-Bean-后置处理器" class="headerlink" title="Spring Bean 后置处理器"></a>Spring Bean 后置处理器</h1><p>Bean后置处理器允许再调用初始化方法前后对bean进行额外的处理。</p>
-<h4 id="BeanPostProcessor接口定义回调方法："><a href="#BeanPostProcessor接口定义回调方法：" class="headerlink" title="BeanPostProcessor接口定义回调方法："></a>BeanPostProcessor接口定义回调方法：</h4><p>​    可以实现该接口提供自己的实例化逻辑，依赖解析逻辑等。</p>
-<p>可以通过BeanPostProcessor实现的Ordered接口提供的order属性来控制这些BeanPostProcessor接口的执行顺序。</p>
-<p>ApplicationContext会自动检测由BeanPostProcessor接口定义的bean，注册这些bean为后置处理器，然后通过再容器中创建bean，在适当的时候调用它。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>chapter<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>resultset<span class="token punctuation">.</span>ResultSetHandler<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>plugin<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
 
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>BeansException<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>config<span class="token punctuation">.</span>BeanPostProcessor<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Statement<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InitHelloWorld</span> <span class="token keyword">implements</span> <span class="token class-name">BeanPostProcessor</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> Object <span class="token function">postProcessBeforeInitialization</span><span class="token punctuation">(</span>Object bean<span class="token punctuation">,</span> String beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> BeansException <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"BeforeInitialization:"</span> <span class="token operator">+</span> beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> bean<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/**
+ * MyBatis Map类型下划线key转小写驼峰形式
+ *
+ * @author zhouli
+ */</span>
+<span class="token annotation punctuation">@Intercepts</span><span class="token punctuation">(</span>   <span class="token comment" spellcheck="true">//ResultSetHandler接口方法签名。在查询方法中被调用</span>
+        <span class="token annotation punctuation">@Signature</span><span class="token punctuation">(</span>
+                type <span class="token operator">=</span> ResultSetHandler<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+                method <span class="token operator">=</span> <span class="token string">"handleResultSets"</span><span class="token punctuation">,</span>
+                args <span class="token operator">=</span> <span class="token punctuation">{</span>Statement<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"unchecked"</span><span class="token punctuation">,</span> <span class="token string">"rawtypes"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CameHumpInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">Interceptor</span> <span class="token punctuation">{</span>
 
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> Object <span class="token function">postProcessAfterInitialization</span><span class="token punctuation">(</span>Object bean<span class="token punctuation">,</span> String beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> BeansException <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"AfterInitialization:"</span> <span class="token operator">+</span> beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> bean<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> Object <span class="token function">intercept</span><span class="token punctuation">(</span>Invocation invocation<span class="token punctuation">)</span> <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>
+        List<span class="token operator">&lt;</span>Object<span class="token operator">></span> list <span class="token operator">=</span> <span class="token punctuation">(</span>List<span class="token operator">&lt;</span>Object<span class="token operator">></span><span class="token punctuation">)</span> invocation<span class="token punctuation">.</span><span class="token function">proceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>Object object <span class="token operator">:</span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//如果时map类型，就对map的key转换</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>object <span class="token keyword">instanceof</span> <span class="token class-name">Map</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">processMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Map<span class="token punctuation">)</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 处理Map类型
+     * @param map
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">processMap</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Set<span class="token operator">&lt;</span>String<span class="token operator">></span> keySet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>String key <span class="token operator">:</span> keySet<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//将以大写开头的字符串转换为小写，如果不包含下划线也会处理为驼峰</span>
+            <span class="token comment" spellcheck="true">//此处只通过这两个简单的标识来判断是否转换</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> key<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>
+                    <span class="token operator">||</span> key<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"_"</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                Object value <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                map<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token function">underlineToCamelhump</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 将下划线风格替换为驼峰风格
+     * @param inputString
+     * @return
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">underlineToCamelhump</span><span class="token punctuation">(</span>String inputString<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> nextUpperCase <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> inputString<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">char</span> c <span class="token operator">=</span> inputString<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'_'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    nextUpperCase <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>nextUpperCase<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>Character<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>Character<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Object <span class="token function">plugin</span><span class="token punctuation">(</span>Object target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Plugin<span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setProperties</span><span class="token punctuation">(</span>Properties properties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h1 id="Spring-依赖注入"><a href="#Spring-依赖注入" class="headerlink" title="Spring 依赖注入"></a>Spring 依赖注入</h1><blockquote>
-<p>依赖注入就是把类粘合在一起同时保持他们独立。</p>
-</blockquote>
-<p>通常使用类的构造函数或setter方法参数引入另一个类来保证互相的独立性。</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TextEditor</span> <span class="token punctuation">{</span>
-   <span class="token keyword">private</span> SpellChecker spellChecker<span class="token punctuation">;</span>
-   <span class="token keyword">public</span> <span class="token function">TextEditor</span><span class="token punctuation">(</span>SpellChecker spellChecker<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>spellChecker <span class="token operator">=</span> spellChecker<span class="token punctuation">;</span>
-   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p>这样只需将SpellChecker用作TextEditor的参数。然后实例化整个过程是由Spring框架的控制。</p>
-<h4 id="Spring-基于构造函数的依赖注入"><a href="#Spring-基于构造函数的依赖注入" class="headerlink" title="Spring 基于构造函数的依赖注入"></a>Spring 基于构造函数的依赖注入</h4><blockquote>
-<p>当容器调用带有一组参数的类构造函数时，基于构造函数的DI就完成了，其中每个参数代表一个对其他类的依赖。</p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>chapter<span class="token punctuation">.</span>editor<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpellChecker</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token function">SpellChecker</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Inside SpellChecker Constructor"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">CheckSpelling</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Inside CheckSpell"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>chapter<span class="token punctuation">.</span>editor<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TextEditor</span> <span class="token punctuation">{</span>
-    <span class="token keyword">private</span> SpellChecker spellChecker<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token function">TextEditor</span><span class="token punctuation">(</span>SpellChecker spellChecker<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Inside TextEditor Constructor"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>spellChecker <span class="token operator">=</span> spellChecker<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">SpellCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        spellChecker<span class="token punctuation">.</span><span class="token function">CheckSpelling</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>chapter<span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> com<span class="token punctuation">.</span>aop<span class="token punctuation">.</span>chapter<span class="token punctuation">.</span>editor<span class="token punctuation">.</span>TextEditor<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>support<span class="token punctuation">.</span>AbstractApplicationContext<span class="token punctuation">;</span>
-<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>support<span class="token punctuation">.</span>ClassPathXmlApplicationContext<span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainApp</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        AbstractApplicationContext context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClassPathXmlApplicationContext</span><span class="token punctuation">(</span><span class="token string">"Beans.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        TextEditor textEditor <span class="token operator">=</span> <span class="token punctuation">(</span>TextEditor<span class="token punctuation">)</span>context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"textEditor"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        textEditor<span class="token punctuation">.</span><span class="token function">SpellCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.aop.chapter.editor.TextEditor<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>textEditor<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor-arg</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>spellChecker<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.aop.chapter.editor.SpellChecker<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>spellChecker<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span></code></pre>
-<h4 id="Spring-基于setter函数的依赖注入"><a href="#Spring-基于setter函数的依赖注入" class="headerlink" title="Spring 基于setter函数的依赖注入"></a>Spring 基于setter函数的依赖注入</h4><p>将上文的构造函数改为setter函数 &amp;&amp; 将<bean>标签中的<constructor-arg>元素改为 <property>元素 注意:引用的是对象的话要用<strong>ref</strong>，若直接传值的话用<strong>value</strong>属性。</property></constructor-arg></bean></p>
-<h4 id="Spring-注入内部Beans"><a href="#Spring-注入内部Beans" class="headerlink" title="Spring 注入内部Beans"></a>Spring 注入内部Beans</h4><p>在java中内部类是在其它类中定义的一个类，同理，inner beans是在其他bean中定义的bean –&gt;称为内部bean，例如：</p>
-<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span>bean id<span class="token operator">=</span><span class="token string">"..."</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>bean id<span class="token operator">=</span><span class="token string">"..."</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"..."</span><span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>property<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>bean<span class="token operator">></span></code></pre>
+<p>这个插件很简单，就是循环判断结果。如果是Map类型的结果，就对Map的key进行处理。当数据经过这个拦截器插件处理后，就可以保证在任何数据库中以Map作为结果值类型时，都有一致的key值，可以统一取值。想要使用该插件需要在mybatis-config.xml中配置该插件。</p>
+<pre><code>//拦截器配置
+&lt;plugins&gt;
+  &lt;plugin interceptor=&quot;该拦截器的全限定类名&quot;/&gt;
+&lt;/plugins&gt;
+</code></pre><p>在上面拦截器代码的26行，<strong>invocation.proceed()执行的结果被强制转换为List类型</strong>。这是因为拦截器接口<strong>ResultSetHandler</strong>的<strong>handleResultSets</strong>方法的返回值为List类型。写拦截器时，<strong>要根据被拦截的方法来确定返回值的类型。</strong></p>
 
             </div>
             <hr/>
@@ -726,7 +694,7 @@ request 请求模式：每次Ht">
         repo: 'https://github.com/806931581/806931581.github.io',
         owner: '806931581',
         admin: 806931581,
-        id: '2019-08-07T09-25-00',
+        id: '2019-08-18T20-47-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -747,91 +715,36 @@ request 请求模式：每次Ht">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hello-world">
+                <a href="/mybatis-hump">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MyBatis拦截器之下画线键值转驼峰">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">MyBatis拦截器之下画线键值转驼峰</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Markdown/" class="post-category" target="_blank">
-                                    Markdown
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Typora/" target="_blank">
-                        <span class="chip bg-color">Typora</span>
-                    </a>
-                    
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/spring">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="初识Spring(一)">
-                        
-                        <span class="card-title">初识Spring(一)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Spring Bean 作用域
-singleton   单例模式：（默认值）在Spring IoC容器仅存在一个Bean实例
-prototype  原型模式： 每次从容器中调用Bean都会返回一个新实例。
-request 请求模式：每次Ht
+                            MyBatis拦截器之下画线键值转驼峰​        在使用MyBatis时，为了方便扩展而使用Map类型的返回值。使用Map作为返回值时，Map中的键值就是查询结果中的列名，而列名一般都是大写小写字母或者下画线形式，和Java中使用的驼
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Spring/" class="post-category" target="_blank">
-                                    Spring
+                            <a href="/categories/MyBatis/" class="post-category" target="_blank">
+                                    MyBatis
                                 </a>
                             
                             
@@ -846,8 +759,68 @@ request 请求模式：每次Ht
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/Spring/" target="_blank">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/MyBatis/" target="_blank">
+                        <span class="chip bg-color">MyBatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/mybatis-cache">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="MyBatis缓存">
+                        
+                        <span class="card-title">MyBatis缓存</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            MyBatis缓存一级缓存
+一级缓存（也叫本地缓存）默认会启用，而且不能控制
+
+先看一个示例
+public class CacheTest extends BaseMapperTest {
+
+    @Test
+    public voi
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MyBatis/" class="post-category" target="_blank">
+                                    MyBatis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/" target="_blank">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/MyBatis/" target="_blank">
+                        <span class="chip bg-color">MyBatis</span>
                     </a>
                     
                 </div>

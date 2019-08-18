@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>头秃眼瞎</title>
   
-  <subtitle>嘴歪眼斜</subtitle>
+  <subtitle>鼻歪嘴斜</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhoulis.top/"/>
-  <updated>2019-08-17T13:27:52.087Z</updated>
+  <updated>2019-08-18T13:03:53.990Z</updated>
   <id>http://www.zhoulis.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MyBatis拦截器之下画线键值转驼峰</title>
+    <link href="http://www.zhoulis.top/mybatis-hump"/>
+    <id>http://www.zhoulis.top/mybatis-hump</id>
+    <published>2019-08-18T12:47:00.000Z</published>
+    <updated>2019-08-18T13:03:53.990Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MyBatis拦截器之下画线键值转驼峰"><a href="#MyBatis拦截器之下画线键值转驼峰" class="headerlink" title="MyBatis拦截器之下画线键值转驼峰"></a>MyBatis拦截器之下画线键值转驼峰</h1><p>​        在使用MyBatis时，为了方便扩展而使用Map类型的返回值。使用Map作为返回值时，Map中的键值就是查询结果中的列名，而列名一般都是大写小写字母或者下画线形式，和Java中使用的驼峰形式不一致，为了保证在使用map时属性一致，可以对结果进行特殊处理——使用拦截器将不同格式的列名转换为Java中的驼峰形式。实现代码如下：</p><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> tk<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>simple<span class="token punctuation">.</span>plugin<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>executor<span class="token punctuation">.</span>resultset<span class="token punctuation">.</span>ResultSetHandler<span class="token punctuation">;</span><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>plugin<span class="token punctuation">.</span>*<span class="token punctuation">;</span><span class="token keyword">import</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Statement<span class="token punctuation">;</span><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span><span class="token comment" spellcheck="true">/** * MyBatis Map类型下划线key转小写驼峰形式 * * @author zhouli */</span><span class="token annotation punctuation">@Intercepts</span><span class="token punctuation">(</span>   <span class="token comment" spellcheck="true">//ResultSetHandler接口方法签名。在查询方法中被调用</span>        <span class="token annotation punctuation">@Signature</span><span class="token punctuation">(</span>                type <span class="token operator">=</span> ResultSetHandler<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>                method <span class="token operator">=</span> <span class="token string">"handleResultSets"</span><span class="token punctuation">,</span>                args <span class="token operator">=</span> <span class="token punctuation">{</span>Statement<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"unchecked"</span><span class="token punctuation">,</span> <span class="token string">"rawtypes"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CameHumpInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">Interceptor</span> <span class="token punctuation">{</span>    <span class="token annotation punctuation">@Override</span>    <span class="token keyword">public</span> Object <span class="token function">intercept</span><span class="token punctuation">(</span>Invocation invocation<span class="token punctuation">)</span> <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>        List<span class="token operator">&lt;</span>Object<span class="token operator">></span> list <span class="token operator">=</span> <span class="token punctuation">(</span>List<span class="token operator">&lt;</span>Object<span class="token operator">></span><span class="token punctuation">)</span> invocation<span class="token punctuation">.</span><span class="token function">proceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span>Object object <span class="token operator">:</span> list<span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment" spellcheck="true">//如果时map类型，就对map的key转换</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>object <span class="token keyword">instanceof</span> <span class="token class-name">Map</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token function">processMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Map<span class="token punctuation">)</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>                <span class="token keyword">break</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> list<span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">/**     * 处理Map类型     * @param map     */</span>    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">processMap</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token operator">></span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>        Set<span class="token operator">&lt;</span>String<span class="token operator">></span> keySet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span>String key <span class="token operator">:</span> keySet<span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token comment" spellcheck="true">//将以大写开头的字符串转换为小写，如果不包含下划线也会处理为驼峰</span>            <span class="token comment" spellcheck="true">//此处只通过这两个简单的标识来判断是否转换</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token string">'A'</span> <span class="token operator">&amp;&amp;</span> key<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token string">'Z'</span><span class="token punctuation">)</span>                    <span class="token operator">||</span> key<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"_"</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                Object value <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>                map<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>                map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token function">underlineToCamelhump</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">/**     * 将下划线风格替换为驼峰风格     * @param inputString     * @return     */</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">underlineToCamelhump</span><span class="token punctuation">(</span>String inputString<span class="token punctuation">)</span> <span class="token punctuation">{</span>        StringBuilder sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">boolean</span> nextUpperCase <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> inputString<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>            <span class="token keyword">char</span> c <span class="token operator">=</span> inputString<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">'_'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                    nextUpperCase <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>nextUpperCase<span class="token punctuation">)</span><span class="token punctuation">{</span>                    sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>Character<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>                    sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>Character<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token annotation punctuation">@Override</span>    <span class="token keyword">public</span> Object <span class="token function">plugin</span><span class="token punctuation">(</span>Object target<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">return</span> Plugin<span class="token punctuation">.</span><span class="token function">wrap</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token annotation punctuation">@Override</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setProperties</span><span class="token punctuation">(</span>Properties properties<span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>这个插件很简单，就是循环判断结果。如果是Map类型的结果，就对Map的key进行处理。当数据经过这个拦截器插件处理后，就可以保证在任何数据库中以Map作为结果值类型时，都有一致的key值，可以统一取值。想要使用该插件需要在mybatis-config.xml中配置该插件。</p><pre><code>//拦截器配置&lt;plugins&gt;  &lt;plugin interceptor=&quot;该拦截器的全限定类名&quot;/&gt;&lt;/plugins&gt;</code></pre><p>在上面拦截器代码的26行，<strong>invocation.proceed()执行的结果被强制转换为List类型</strong>。这是因为拦截器接口<strong>ResultSetHandler</strong>的<strong>handleResultSets</strong>方法的返回值为List类型。写拦截器时，<strong>要根据被拦截的方法来确定返回值的类型。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;MyBatis拦截器之下画线键值转驼峰&quot;&gt;&lt;a href=&quot;#MyBatis拦截器之下画线键值转驼峰&quot; class=&quot;headerlink&quot; title=&quot;MyBatis拦截器之下画线键值转驼峰&quot;&gt;&lt;/a&gt;MyBatis拦截器之下画线键值转驼峰&lt;/h1&gt;&lt;p&gt;​ 
+      
+    
+    </summary>
+    
+      <category term="MyBatis" scheme="http://www.zhoulis.top/categories/MyBatis/"/>
+    
+    
+      <category term="java" scheme="http://www.zhoulis.top/tags/java/"/>
+    
+      <category term="MyBatis" scheme="http://www.zhoulis.top/tags/MyBatis/"/>
+    
+  </entry>
   
   <entry>
     <title>MyBatis缓存</title>
@@ -71,6 +98,33 @@
   </entry>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://www.zhoulis.top/hello-world"/>
+    <id>http://www.zhoulis.top/hello-world</id>
+    <published>2019-08-07T01:25:00.000Z</published>
+    <updated>2019-08-18T12:59:30.111Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+      <category term="Markdown" scheme="http://www.zhoulis.top/categories/Markdown/"/>
+    
+    
+      <category term="Typora" scheme="http://www.zhoulis.top/tags/Typora/"/>
+    
+      <category term="Markdown" scheme="http://www.zhoulis.top/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初识Spring(一)</title>
     <link href="http://www.zhoulis.top/spring"/>
     <id>http://www.zhoulis.top/spring</id>
@@ -95,33 +149,6 @@
       <category term="java" scheme="http://www.zhoulis.top/tags/java/"/>
     
       <category term="Spring" scheme="http://www.zhoulis.top/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>helloworld</title>
-    <link href="http://www.zhoulis.top/hello-world"/>
-    <id>http://www.zhoulis.top/hello-world</id>
-    <published>2019-08-07T01:25:00.000Z</published>
-    <updated>2019-08-17T13:27:15.713Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-      <category term="Markdown" scheme="http://www.zhoulis.top/categories/Markdown/"/>
-    
-    
-      <category term="Typora" scheme="http://www.zhoulis.top/tags/Typora/"/>
-    
-      <category term="Markdown" scheme="http://www.zhoulis.top/tags/Markdown/"/>
     
   </entry>
   
