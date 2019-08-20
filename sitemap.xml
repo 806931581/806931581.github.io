@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhoulis.top/exception</loc>
+    
+    <lastmod>2019-08-20T12:49:33.556Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhoulis.top/mybatis-hump</loc>
     
     <lastmod>2019-08-18T13:03:53.990Z</lastmod>
