@@ -323,7 +323,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        884
+                        900
                     </div>
                     
 
@@ -410,7 +410,7 @@
         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
         at java.lang.Thread.run(Thread.java:748)</code></pre><p>解决办法：</p>
-<p>​    在mybatis-config.xml中的settings 中如果有<setting name="logImpl" value="LOG4J"> 有没有配置好</setting></p>
+<p>​    在mybatis-config.xml中的settings 中如果有&lt;setting name=”logImpl”value=”LOG4J”/&gt; 那jar有没有导入 文件有没有配置好</p>
 <p>再就是service接口实现类上有没有加上@Service注解.</p>
 <p>再就是扫包的路径有没有拼错</p>
 <p>整合 要把Spring，mybatis配置导入到web.xml中：</p>
