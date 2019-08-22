@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.zhoulis.top/spring</loc>
+    <lastmod>2019-08-22</lastmod>
+  </url>  <url>
+    <loc>http://www.zhoulis.top/spring2</loc>
+    <lastmod>2019-08-22</lastmod>
+  </url>  <url>
     <loc>http://www.zhoulis.top/exception</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
@@ -15,11 +21,5 @@
   </url>  <url>
     <loc>http://www.zhoulis.top/mybatis-cache</loc>
     <lastmod>2019-08-17</lastmod>
-  </url>  <url>
-    <loc>http://www.zhoulis.top/spring2</loc>
-    <lastmod>2019-08-15</lastmod>
-  </url>  <url>
-    <loc>http://www.zhoulis.top/spring</loc>
-    <lastmod>2019-08-15</lastmod>
   </url>
 </urlset>

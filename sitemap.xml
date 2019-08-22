@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhoulis.top/spring</loc>
+    
+    <lastmod>2019-08-22T07:49:03.029Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhoulis.top/spring2</loc>
+    
+    <lastmod>2019-08-22T07:48:50.842Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhoulis.top/exception</loc>
     
     <lastmod>2019-08-22T07:42:20.571Z</lastmod>
@@ -33,20 +47,6 @@
     <loc>http://www.zhoulis.top/mybatis-cache</loc>
     
     <lastmod>2019-08-17T13:27:52.087Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhoulis.top/spring2</loc>
-    
-    <lastmod>2019-08-15T13:39:04.740Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhoulis.top/spring</loc>
-    
-    <lastmod>2019-08-15T13:38:20.509Z</lastmod>
     
   </url>
   
