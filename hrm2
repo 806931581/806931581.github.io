@@ -1701,32 +1701,36 @@ dataSource.jdbcUrl=jdbc:">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/hrm2">
+                <a href="/hrm3">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="ssm小项目：人事管理系统(二)">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ssm小项目：人事管理系统(三)">
                         
-                        <span class="card-title">ssm小项目：人事管理系统(二)</span>
+                        <span class="card-title">ssm小项目：人事管理系统(三)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ssm小项目：人事管理系统(二)部署DAO层先为其提供对应的数据源 db.properties
-dataSource.driverClass=com.mysql.cj.jdbc.Driver
-dataSource.jdbcUrl=jdbc:
+                            实现Web层
+当控制器接受发到用户请求后，控制器并不会处理用户请求，只是对用户的请求参数进行解析处理，然后调用业务逻辑方法来处理用户请求； 当请求被处理完成后，控制器负责将处理结果通过JSP页面呈现给用户
+
+web.xml
+
+
+  
+   
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1739,7 +1743,6 @@ dataSource.jdbcUrl=jdbc:
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1973,7 +1976,7 @@ dataSource.jdbcUrl=jdbc:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">15k</span>
+                <span class="white-color">16k</span>
             
 
             
