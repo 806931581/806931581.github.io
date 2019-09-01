@@ -15,7 +15,7 @@ dataSource.jdbcUrl=jdbc:">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ssm小项目：人事管理系统(二) | 头秃眼瞎</title>
+    <title>ssm小项目：人事管理系统(二) | 鹤别空山</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -26,6 +26,10 @@ dataSource.jdbcUrl=jdbc:">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
         
     </style>
 
@@ -43,7 +47,7 @@ dataSource.jdbcUrl=jdbc:">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">头秃眼瞎</span>
+                    <span class="logo-span">鹤别空山</span>
                 </a>
             </div>
             
@@ -118,10 +122,10 @@ dataSource.jdbcUrl=jdbc:">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">头秃眼瞎</div>
+        <div class="logo-name">鹤别空山</div>
         <div class="logo-desc">
             
-            只管努力,剩下的交给时间
+            云出十里，未及孤村，长夜无眠，为海祈梦  ——顾城
             
         </div>
     </div>
@@ -1844,7 +1848,7 @@ web.xml
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: 头秃眼瞎<br />'
+            + '来源: 鹤别空山<br />'
             + '作者: zhou李<br />'
             + '链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
