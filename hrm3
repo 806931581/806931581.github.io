@@ -935,50 +935,43 @@ web.xml
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/hrm3">
+                <a href="/spring-mvc-ji-chu-ji-yu-xml-pei-zhi">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ssm小项目：人事管理系统(三)">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Spring MVC 基础(基于XML配置)">
                         
-                        <span class="card-title">ssm小项目：人事管理系统(三)</span>
+                        <span class="card-title">Spring MVC 基础(基于XML配置)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            实现Web层
-当控制器接受发到用户请求后，控制器并不会处理用户请求，只是对用户的请求参数进行解析处理，然后调用业务逻辑方法来处理用户请求； 当请求被处理完成后，控制器负责将处理结果通过JSP页面呈现给用户
-
-web.xml
-
-
-  
-   
+                            Spring MVC 基础（基于 XML 配置）一、搭建 Hello Spring 工程1.1 构建 Web 项目1.新建 maven web 工程，并引入相应的依赖：
+&lt;properties&gt;
+    &lt;spring-b
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ssm/" class="post-category" target="_blank">
-                                    ssm
+                            <a href="/categories/SpringMVC/" class="post-category" target="_blank">
+                                    SpringMVC
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -986,8 +979,8 @@ web.xml
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/ssm/" target="_blank">
-                        <span class="chip bg-color">ssm</span>
+                    <a href="/tags/SpringMVC/" target="_blank">
+                        <span class="chip bg-color">SpringMVC</span>
                     </a>
                     
                 </div>
@@ -1214,7 +1207,7 @@ dataSource.jdbcUrl=jdbc:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">16k</span>
+                <span class="white-color">19.6k</span>
             
 
             

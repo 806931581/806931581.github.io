@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.zhoulis.top/exception</loc>
+    <lastmod>2019-09-22</lastmod>
+  </url>  <url>
+    <loc>http://www.zhoulis.top/spring-mvc-ji-chu-ji-yu-xml-pei-zhi</loc>
+    <lastmod>2019-09-22</lastmod>
+  </url>  <url>
     <loc>http://www.zhoulis.top/hrm3</loc>
-    <lastmod>2019-08-30</lastmod>
+    <lastmod>2019-09-22</lastmod>
+  </url>  <url>
+    <loc>http://www.zhoulis.top/hrm2</loc>
+    <lastmod>2019-09-22</lastmod>
   </url>  <url>
     <loc>http://www.zhoulis.top/spring</loc>
     <lastmod>2019-08-22</lastmod>
@@ -10,13 +19,7 @@
     <loc>http://www.zhoulis.top/spring2</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/exception</loc>
-    <lastmod>2019-08-22</lastmod>
-  </url>  <url>
     <loc>http://www.zhoulis.top/hrm1</loc>
-    <lastmod>2019-08-22</lastmod>
-  </url>  <url>
-    <loc>http://www.zhoulis.top/hrm2</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
     <loc>http://www.zhoulis.top/mybatis-hump</loc>
