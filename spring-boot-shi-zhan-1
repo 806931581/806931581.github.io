@@ -4,8 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="org.springframework.beans.factory.UnsatisfiedDependencyException异常, Java, C++, Spring">
-    <meta name="description" content="org.springframework.beans.factory.UnsatisfiedDependencyException异常：org.springframework.beans.factory.UnsatisfiedDependen">
+    <meta name="keywords" content="【Spring Boot实战】论坛项目（一）, Java, C++, Spring">
+    <meta name="description" content="前言此项目的主要意图时为了通过项目来学习Spring Boot。把书作为参考书，这样会很容易看到自己哪些地方薄弱再对症下药。
+开发环境项目采用Spring Boot、JDK1.8开发。
+会用到什么? 
+Spring Boot , IDEA ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>org.springframework.beans.factory.UnsatisfiedDependencyException异常 | 鹤别空山</title>
+    <title>【Spring Boot实战】论坛项目（一） | 鹤别空山</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -270,7 +273,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        org.springframework.beans.factory.UnsatisfiedDependencyException异常
+                        【Spring Boot实战】论坛项目（一）
                     </div>
                 </div>
             </div>
@@ -280,10 +283,99 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -296,8 +388,8 @@
                                 <span class="chip bg-color">java</span>
                             </a>
                         
-                            <a href="/tags/Exceprion/" target="_blank">
-                                <span class="chip bg-color">Exceprion</span>
+                            <a href="/tags/SpringBoot/" target="_blank">
+                                <span class="chip bg-color">SpringBoot</span>
                             </a>
                         
                     </div>
@@ -308,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Exception/" class="post-category" target="_blank">
-                                Exception
+                            <a href="/categories/SpringBoot/" class="post-category" target="_blank">
+                                SpringBoot
                             </a>
                         
                     </div>
@@ -320,21 +412,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-20
+                    2019-09-24
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        900
+                        884
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        4 分
                     </div>
                     
                 
@@ -350,88 +442,77 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="org-springframework-beans-factory-UnsatisfiedDependencyException异常："><a href="#org-springframework-beans-factory-UnsatisfiedDependencyException异常：" class="headerlink" title="org.springframework.beans.factory.UnsatisfiedDependencyException异常："></a>org.springframework.beans.factory.UnsatisfiedDependencyException异常：</h3><pre><code>org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;dictServiceImpl&#39;: Unsatisfied dependency expressed through field &#39;dictMapper&#39;; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name &#39;dictMapper&#39; defined in file [G:\javaproject\mybtisspring\target\mybtis-spring\WEB-INF\classes\tk\mybatis\web\mapper\DictMapper.class]: Unsatisfied dependency expressed through bean property &#39;sqlSessionFactory&#39;; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;sqlSessionFactory&#39; defined in class path resource [applicationContext.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.logging.LogException: Error setting Log implementation.  Cause: java.lang.NoClassDefFoundError: org/apache/log4j/Priority
-        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
-        at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
-        at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
-        at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
-        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
-        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
-        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
-        at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:443)
-        at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:325)
-        at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:107)
-        at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4770)
-        at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5236)
-        at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
-        at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:754)
-        at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:730)
-        at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:744)
-        at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1730)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:287)
-        at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
-        at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
-        at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:483)
-        at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:432)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:287)
-        at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:819)
-        at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
-        at com.sun.jmx.remote.security.MBeanServerAccessController.invoke(MBeanServerAccessController.java:468)
-        at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1468)
-        at javax.management.remote.rmi.RMIConnectionImpl.access$300(RMIConnectionImpl.java:76)
-        at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1309)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1408)
-        at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357)
-        at sun.rmi.transport.Transport$1.run(Transport.java:200)
-        at sun.rmi.transport.Transport$1.run(Transport.java:197)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-        at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:573)
-        at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:834)
-        at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:688)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:687)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-        at java.lang.Thread.run(Thread.java:748)</code></pre><p>解决办法：</p>
-<p>​    在mybatis-config.xml中的settings 中如果有&lt;setting name=”logImpl”value=”LOG4J”/&gt; 那jar有没有导入 文件有没有配置好</p>
-<p>再就是service接口实现类上有没有加上@Service注解.</p>
-<p>再就是扫包的路径有没有拼错</p>
-<p>整合 要把Spring，mybatis配置导入到web.xml中：</p>
-<pre><code>&lt;context-param&gt;
-    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-  &lt;/context-param&gt;
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此项目的主要意图时为了通过项目来学习Spring Boot。把书作为参考书，这样会很容易看到自己哪些地方薄弱再对症下药。</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>项目采用Spring Boot、JDK1.8开发。</p>
+<p>会用到什么? </p>
+<p><strong>Spring Boot , IDEA , Refactor , Git/Github , Bootstrap , Github Authorization , MySQL , MyBatis,………</strong></p>
+<h3 id="快速搭建Spring-Boot项目"><a href="#快速搭建Spring-Boot项目" class="headerlink" title="快速搭建Spring Boot项目"></a>快速搭建Spring Boot项目</h3><p>使用IDEA很容易搭建一个Spring Boot项目 </p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569331167/blog/W9_24_VPPP___BHG4JNMA4_z3agbg.png" alt="新建SpringBoot"></p>
+<p>在新建完成后就可以着手使用Github</p>
+<h3 id="使用Github托管代码"><a href="#使用Github托管代码" class="headerlink" title="使用Github托管代码"></a>使用Github托管代码</h3><p>先创建一个仓库community</p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569331721/blog/QQ%E6%88%AA%E5%9B%BE20190924212722_urslfg.png" alt></p>
+<p>在IDEA中打开Terminal：执行</p>
+<p>git init （当前文件目录作为仓库）</p>
+<p>git add . (全部文件丢到暂存里)</p>
+<p>git commit -m “init repo” (提供commit信息)</p>
+<p>git remote add origin 仓库的地址 (添加远程地址)</p>
+<p>git push -u origin master  (提交到远程地址)</p>
+<h3 id="Bootstrap-编写导航栏样式"><a href="#Bootstrap-编写导航栏样式" class="headerlink" title="Bootstrap 编写导航栏样式"></a>Bootstrap 编写导航栏样式</h3><p>​    为了降低学习成本直接去官网下载Bootstrap来快速实现前端功能</p>
+<p><a href="https://v3.bootcss.com/getting-started/" target="_blank" rel="noopener">Bootstrap下载</a></p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569332768/blog/bootstrap_cpsjjn.png" alt></p>
+<p>下载Bootstrap将内文件复制到项目src\main\resources\static文件夹下新建index.html文件</p>
+<p>将Bootstrap引入到index.html中</p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569333082/blog/index1_u0l5su.png" alt></p>
+<p><a href="https://v3.bootcss.com/components/" target="_blank" rel="noopener">Bootstrap</a>组件标签里选择导航条：</p>
+<p>复制导航条中第一个实例代码到index.html<body>元素中修改其中内容：</body></p>
+<pre><code>&lt;nav class=&quot;navbar navbar-default&quot;&gt;
+    &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot; data-toggle=&quot;collapse&quot;
+                    data-target=&quot;#bs-example-navbar-collapse-1&quot; aria-expanded=&quot;false&quot;&gt;
+                &lt;span class=&quot;sr-only&quot;&gt;Code社区&lt;/span&gt;
 
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Code社区&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;bs-example-navbar-collapse-1&quot;&gt;
+            &lt;form class=&quot;navbar-form navbar-left&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;搜索话题&quot;&gt;
+                &lt;/div&gt;
+                &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;搜索&lt;/button&gt;
+            &lt;/form&gt;
+            &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
+                &lt;li&gt;&lt;a href=&quot;https://github.com/login/oauth/authorize?client_id=75b0ed1277b782ab053d&amp;redirect_uri=http://localhost:8887/callback&amp;scope=user&amp;state=1&quot;&gt;登录&lt;/a&gt;&lt;/li&gt;
+                &lt;li class=&quot;dropdown&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot;
+                       aria-expanded=&quot;false&quot;&gt;我 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;消息中心&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;个人资料&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;退出登录&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre><h3 id="实现登录功能"><a href="#实现登录功能" class="headerlink" title="实现登录功能"></a>实现登录功能</h3><h5 id="注册Github-App"><a href="#注册Github-App" class="headerlink" title="注册Github App"></a>注册Github App</h5><p>Setting-&gt; Developer settings-&gt;OAuthApps</p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569333834/blog/OAuth_dfrwwc.png" alt></p>
+<p>这里的URL对应上文index.html中的链接地址</p>
+<h5 id="图解Github登录流程"><a href="#图解Github登录流程" class="headerlink" title="图解Github登录流程"></a>图解Github登录流程</h5><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569334740/blog/%E6%97%B6%E5%BA%8F%E5%9B%BE_dul90y.png" alt></p>
+<p>：用户访问code社区进行登录操作 code社区会调用Github的authorize接口去访问Github，这时候Github会直接跳转回给他携带的redirect-uri并且携带一个code 当code社区接受到这个code时会再次调用Github的access-token并且携带刚刚传回的code。这步是为了去获取token。如果验证成功Github会直接返回access-token。code社区再次使用access-token调用Github的User API 这样就可以获取到Github的user信息。这个时候就可以更新登录状态。返回用户登陆成功！</p>
+<h3 id="测试登录功能"><a href="#测试登录功能" class="headerlink" title="测试登录功能"></a>测试登录功能</h3><p>创建个简单的控制器</p>
+<pre><code>@Controller
+public class IndexController {
+    @GetMapping(&quot;/&quot;)
+    public String index() {
+        return &quot;index&quot;;
+    }
+}</code></pre><p>运行项目：在浏览器中输入：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569335771/blog/%E5%AF%BC%E8%88%AA%E6%A0%8F_wsojsp.png" alt></p>
+<p>点击登录拉取Github登录此网站</p>
+<p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569335977/blog/QQ%E6%88%AA%E5%9B%BE20190924223849_qbtmbj.png" alt></p>
 
-
-
-
----------------------
-&lt;init-param&gt;
-      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-      &lt;param-value&gt;classpath:mybatis-servlet.xml&lt;/param-value&gt;
-    &lt;/init-param&gt;</code></pre>
             </div>
             <hr/>
 
@@ -589,9 +670,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《org.springframework.beans.factory.UnsatisfiedDependencyException异常》
+                    《【Spring Boot实战】论坛项目（一）》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/exception" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/spring-boot-shi-zhan-1" property="cc:attributionName"
                rel="cc:attributionURL">
                 周李
             </a> 采用
@@ -632,7 +713,7 @@
         repo: 'https://github.com/806931581/806931581.github.io',
         owner: '806931581',
         admin: 806931581,
-        id: '2019-08-20T20-47-00',
+        id: '2019-09-24T20-45-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -653,41 +734,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/hrm1">
+                <a href="/spring-boot-shi-zhan-1">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="ssm小项目：人事管理系统(一)">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【Spring Boot实战】论坛项目（一）">
                         
-                        <span class="card-title">ssm小项目：人事管理系统(一)</span>
+                        <span class="card-title">【Spring Boot实战】论坛项目（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ssm小项目：人事管理系统(一)该项目包括用户管理、部门管理、职位管理、员工管理、、公告管理下载中心等系统功能。    采用Spring+SpringMVC+MyBatis架构，Spring的IOC容器负责管理业务逻辑组件、持久层组件及控制
+                            前言此项目的主要意图时为了通过项目来学习Spring Boot。把书作为参考书，这样会很容易看到自己哪些地方薄弱再对症下药。
+开发环境项目采用Spring Boot、JDK1.8开发。
+会用到什么? 
+Spring Boot , IDEA 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ssm/" class="post-category" target="_blank">
-                                    ssm
+                            <a href="/categories/SpringBoot/" class="post-category" target="_blank">
+                                    SpringBoot
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -695,8 +781,8 @@
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/ssm/" target="_blank">
-                        <span class="chip bg-color">ssm</span>
+                    <a href="/tags/SpringBoot/" target="_blank">
+                        <span class="chip bg-color">SpringBoot</span>
                     </a>
                     
                 </div>
@@ -710,31 +796,33 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/mybatis-hump">
+                <a href="/spring-mvc-ji-chu-ji-yu-xml-pei-zhi">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MyBatis拦截器之下画线键值转驼峰">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Spring MVC 基础(基于XML配置)">
                         
-                        <span class="card-title">MyBatis拦截器之下画线键值转驼峰</span>
+                        <span class="card-title">Spring MVC 基础(基于XML配置)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MyBatis拦截器之下画线键值转驼峰​        在使用MyBatis时，为了方便扩展而使用Map类型的返回值。使用Map作为返回值时，Map中的键值就是查询结果中的列名，而列名一般都是大写小写字母或者下画线形式，和Java中使用的驼
+                            Spring MVC 基础（基于 XML 配置）一、搭建 Hello Spring 工程1.1 构建 Web 项目1.新建 maven web 工程，并引入相应的依赖：
+&lt;properties&gt;
+    &lt;spring-b
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MyBatis/" class="post-category" target="_blank">
-                                    MyBatis
+                            <a href="/categories/SpringMVC/" class="post-category" target="_blank">
+                                    SpringMVC
                                 </a>
                             
                             
@@ -748,8 +836,8 @@
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/MyBatis/" target="_blank">
-                        <span class="chip bg-color">MyBatis</span>
+                    <a href="/tags/SpringMVC/" target="_blank">
+                        <span class="chip bg-color">SpringMVC</span>
                     </a>
                     
                 </div>
@@ -800,6 +888,99 @@
 </script>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
     
 
 </main>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhoulis.top/"/>
-  <updated>2019-09-22T03:16:26.315Z</updated>
+  <updated>2019-09-24T14:41:07.493Z</updated>
   <id>http://www.zhoulis.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Spring Boot实战】论坛项目（一）</title>
+    <link href="http://www.zhoulis.top/spring-boot-shi-zhan-1"/>
+    <id>http://www.zhoulis.top/spring-boot-shi-zhan-1</id>
+    <published>2019-09-24T12:45:00.000Z</published>
+    <updated>2019-09-24T14:41:07.493Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此项目的主要意图时为了通过项目来学习Spring Boot。把书作为参考书，这样会很容易看到自己哪些地方薄弱再对症下药。</p><h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><p>项目采用Spring Boot、JDK1.8开发。</p><p>会用到什么? </p><p><strong>Spring Boot , IDEA , Refactor , Git/Github , Bootstrap , Github Authorization , MySQL , MyBatis,………</strong></p><h3 id="快速搭建Spring-Boot项目"><a href="#快速搭建Spring-Boot项目" class="headerlink" title="快速搭建Spring Boot项目"></a>快速搭建Spring Boot项目</h3><p>使用IDEA很容易搭建一个Spring Boot项目 </p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569331167/blog/W9_24_VPPP___BHG4JNMA4_z3agbg.png" alt="新建SpringBoot"></p><p>在新建完成后就可以着手使用Github</p><h3 id="使用Github托管代码"><a href="#使用Github托管代码" class="headerlink" title="使用Github托管代码"></a>使用Github托管代码</h3><p>先创建一个仓库community</p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569331721/blog/QQ%E6%88%AA%E5%9B%BE20190924212722_urslfg.png" alt></p><p>在IDEA中打开Terminal：执行</p><p>git init （当前文件目录作为仓库）</p><p>git add . (全部文件丢到暂存里)</p><p>git commit -m “init repo” (提供commit信息)</p><p>git remote add origin 仓库的地址 (添加远程地址)</p><p>git push -u origin master  (提交到远程地址)</p><h3 id="Bootstrap-编写导航栏样式"><a href="#Bootstrap-编写导航栏样式" class="headerlink" title="Bootstrap 编写导航栏样式"></a>Bootstrap 编写导航栏样式</h3><p>​    为了降低学习成本直接去官网下载Bootstrap来快速实现前端功能</p><p><a href="https://v3.bootcss.com/getting-started/" target="_blank" rel="noopener">Bootstrap下载</a></p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569332768/blog/bootstrap_cpsjjn.png" alt></p><p>下载Bootstrap将内文件复制到项目src\main\resources\static文件夹下新建index.html文件</p><p>将Bootstrap引入到index.html中</p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569333082/blog/index1_u0l5su.png" alt></p><p><a href="https://v3.bootcss.com/components/" target="_blank" rel="noopener">Bootstrap</a>组件标签里选择导航条：</p><p>复制导航条中第一个实例代码到index.html<body>元素中修改其中内容：</body></p><pre><code>&lt;nav class=&quot;navbar navbar-default&quot;&gt;    &lt;div class=&quot;container-fluid&quot;&gt;        &lt;div class=&quot;navbar-header&quot;&gt;            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot; data-toggle=&quot;collapse&quot;                    data-target=&quot;#bs-example-navbar-collapse-1&quot; aria-expanded=&quot;false&quot;&gt;                &lt;span class=&quot;sr-only&quot;&gt;Code社区&lt;/span&gt;            &lt;/button&gt;            &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Code社区&lt;/a&gt;        &lt;/div&gt;        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;bs-example-navbar-collapse-1&quot;&gt;            &lt;form class=&quot;navbar-form navbar-left&quot;&gt;                &lt;div class=&quot;form-group&quot;&gt;                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;搜索话题&quot;&gt;                &lt;/div&gt;                &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;搜索&lt;/button&gt;            &lt;/form&gt;            &lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;                &lt;li&gt;&lt;a href=&quot;https://github.com/login/oauth/authorize?client_id=75b0ed1277b782ab053d&amp;redirect_uri=http://localhost:8887/callback&amp;scope=user&amp;state=1&quot;&gt;登录&lt;/a&gt;&lt;/li&gt;                &lt;li class=&quot;dropdown&quot;&gt;                    &lt;a href=&quot;#&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; role=&quot;button&quot; aria-haspopup=&quot;true&quot;                       aria-expanded=&quot;false&quot;&gt;我 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;                    &lt;ul class=&quot;dropdown-menu&quot;&gt;                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;消息中心&lt;/a&gt;&lt;/li&gt;                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;个人资料&lt;/a&gt;&lt;/li&gt;                        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;退出登录&lt;/a&gt;&lt;/li&gt;                    &lt;/ul&gt;                &lt;/li&gt;            &lt;/ul&gt;        &lt;/div&gt;    &lt;/div&gt;&lt;/nav&gt;</code></pre><h3 id="实现登录功能"><a href="#实现登录功能" class="headerlink" title="实现登录功能"></a>实现登录功能</h3><h5 id="注册Github-App"><a href="#注册Github-App" class="headerlink" title="注册Github App"></a>注册Github App</h5><p>Setting-&gt; Developer settings-&gt;OAuthApps</p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569333834/blog/OAuth_dfrwwc.png" alt></p><p>这里的URL对应上文index.html中的链接地址</p><h5 id="图解Github登录流程"><a href="#图解Github登录流程" class="headerlink" title="图解Github登录流程"></a>图解Github登录流程</h5><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569334740/blog/%E6%97%B6%E5%BA%8F%E5%9B%BE_dul90y.png" alt></p><p>：用户访问code社区进行登录操作 code社区会调用Github的authorize接口去访问Github，这时候Github会直接跳转回给他携带的redirect-uri并且携带一个code 当code社区接受到这个code时会再次调用Github的access-token并且携带刚刚传回的code。这步是为了去获取token。如果验证成功Github会直接返回access-token。code社区再次使用access-token调用Github的User API 这样就可以获取到Github的user信息。这个时候就可以更新登录状态。返回用户登陆成功！</p><h3 id="测试登录功能"><a href="#测试登录功能" class="headerlink" title="测试登录功能"></a>测试登录功能</h3><p>创建个简单的控制器</p><pre><code>@Controllerpublic class IndexController {    @GetMapping(&quot;/&quot;)    public String index() {        return &quot;index&quot;;    }}</code></pre><p>运行项目：在浏览器中输入：<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569335771/blog/%E5%AF%BC%E8%88%AA%E6%A0%8F_wsojsp.png" alt></p><p>点击登录拉取Github登录此网站</p><p><img src="https://res.cloudinary.com/ds5gmzvbq/image/upload/v1569335977/blog/QQ%E6%88%AA%E5%9B%BE20190924223849_qbtmbj.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此项目的主要意图时为了通过项目来学习Spring Boot。把书作为参考书，这样会很容易看到自己哪些地方薄弱再对症下药。&lt;/p&gt;
+&lt;h3 i
+      
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://www.zhoulis.top/categories/SpringBoot/"/>
+    
+    
+      <category term="java" scheme="http://www.zhoulis.top/tags/java/"/>
+    
+      <category term="SpringBoot" scheme="http://www.zhoulis.top/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring MVC 基础(基于XML配置)</title>
