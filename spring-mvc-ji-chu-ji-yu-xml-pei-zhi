@@ -1170,44 +1170,45 @@ protected void initBinder(WebDataBinder binder) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/spring-boot-shi-zhan-1">
+                <a href="/spring-mvc-ji-chu-ji-yu-xml-pei-zhi">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="【Spring Boot实战】论坛项目（一）">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Spring MVC 基础(基于XML配置)">
                         
-                        <span class="card-title">【Spring Boot实战】论坛项目（一）</span>
+                        <span class="card-title">Spring MVC 基础(基于XML配置)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言此项目的主要意图时为了通过项目来学习Spring Boot。把书作为参考书，这样会很容易看到自己哪些地方薄弱再对症下药。
-开发环境项目采用Spring Boot、JDK1.8开发。
-会用到什么? 
-Spring Boot , IDEA 
+                            Spring MVC 基础（基于 XML 配置）一、搭建 Hello Spring 工程1.1 构建 Web 项目1.新建 maven web 工程，并引入相应的依赖：
+&lt;properties&gt;
+    &lt;spring-b
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SpringBoot/" class="post-category" target="_blank">
-                                    SpringBoot
+                            <a href="/categories/SpringMVC/" class="post-category" target="_blank">
+                                    SpringMVC
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1215,8 +1216,8 @@ Spring Boot , IDEA
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/SpringBoot/" target="_blank">
-                        <span class="chip bg-color">SpringBoot</span>
+                    <a href="/tags/SpringMVC/" target="_blank">
+                        <span class="chip bg-color">SpringMVC</span>
                     </a>
                     
                 </div>
@@ -1448,7 +1449,7 @@ web.xml
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">20.5k</span>
+                <span class="white-color">19.6k</span>
             
 
             
