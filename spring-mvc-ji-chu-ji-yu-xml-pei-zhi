@@ -1231,38 +1231,33 @@ protected void initBinder(WebDataBinder binder) {
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hrm3">
+                <a href="/thymeleafbug-de-fu-ben">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="ssm小项目：人事管理系统(三)">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Thymeleaf异常">
                         
-                        <span class="card-title">ssm小项目：人事管理系统(三)</span>
+                        <span class="card-title">Thymeleaf异常</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            实现Web层
-当控制器接受发到用户请求后，控制器并不会处理用户请求，只是对用户的请求参数进行解析处理，然后调用业务逻辑方法来处理用户请求； 当请求被处理完成后，控制器负责将处理结果通过JSP页面呈现给用户
-
-web.xml
-
-
-  
-   
+                            记录一次bug
+SpringBoot 用Thymeleaf时 出现错误
+javax.servlet.ServletException: Circular view path [list]: would dispatch back to th
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ssm/" class="post-category" target="_blank">
-                                    ssm
+                            <a href="/categories/Exception/" class="post-category" target="_blank">
+                                    Exception
                                 </a>
                             
                             
@@ -1276,8 +1271,8 @@ web.xml
                         <span class="chip bg-color">java</span>
                     </a>
                     
-                    <a href="/tags/ssm/" target="_blank">
-                        <span class="chip bg-color">ssm</span>
+                    <a href="/tags/EXception/" target="_blank">
+                        <span class="chip bg-color">EXception</span>
                     </a>
                     
                 </div>
@@ -1449,7 +1444,7 @@ web.xml
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">19.6k</span>
+                <span class="white-color">19.8k</span>
             
 
             

@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>Thymeleaf异常</title>
+      <link href="/thymeleafbug-de-fu-ben"/>
+      <url>/thymeleafbug-de-fu-ben</url>
+      
+        <content type="html"><![CDATA[<p>记录一次bug</p><p>SpringBoot 用Thymeleaf时 出现错误</p><p>javax.servlet.ServletException: Circular view path [list]: would dispatch back to the current handler URL [/list] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.</p><p>网上有两种解决办法：</p><ol><li>缺省转发</li><li>view和path同名</li></ol><p>所以，解决方案如下<br>1.消除缺省转发<br>2.修改view和path，让他们不同名</p><p>##############</p><p>没有解决！</p><p>经过google的排查发现 把Maven中的</p><pre><code>&lt;parent&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;    &lt;version&gt;2.1.7.RELEASE&lt;/version&gt;    &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;&lt;/parent&gt;&lt;groupId&gt;org</code></pre><p>version    改为2.1.7即可 具体为什么会出错 俺也不知道 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exception </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> EXception </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ssm小项目：人事管理系统(三)</title>
       <link href="/hrm3"/>
       <url>/hrm3</url>
