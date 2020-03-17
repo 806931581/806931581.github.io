@@ -1265,32 +1265,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/springboot-redis">
+                <a href="/shiro-deng-lu">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="SpringBoot整合redis&&使用redisTemplate">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Spring Boot整合Shiro实现登录认证">
                         
-                        <span class="card-title">SpringBoot整合redis&&使用redisTemplate</span>
+                        <span class="card-title">Spring Boot整合Shiro实现登录认证</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SpringBoot整合redis 使用redisTemplate首先配置好redis相关依赖,以及redis的配置
-&lt;dependency>
-          &lt;groupId>org.springframework.boo
+                            Spring Boot整合Shiro实现登录认证
+疫情原因在家闲了两个月始终提不起学习兴趣 无所事事~~ 游戏倒是精进不少  趁着兴起,记录一下Shiro整合Spring Boot 在数据库中根据角色控制访问权限
+
+环境Spring Boo
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1303,7 +1303,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1315,8 +1314,8 @@
                         <span class="chip bg-color">springboot</span>
                     </a>
                     
-                    <a href="/tags/redis/" target="_blank">
-                        <span class="chip bg-color">redis</span>
+                    <a href="/tags/shiro/" target="_blank">
+                        <span class="chip bg-color">shiro</span>
                     </a>
                     
                 </div>
@@ -1543,7 +1542,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">22.5k</span>
+                <span class="white-color">25.9k</span>
             
 
             

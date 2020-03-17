@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.zhoulis.top/springboot-redis</loc>
+    <loc>https://pzux6d.coding-pages.com/mybatis-cache</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>https://pzux6d.coding-pages.com/spring-mvc-ji-chu-ji-yu-xml-pei-zhi</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>https://pzux6d.coding-pages.com/shiro-deng-lu</loc>
+    <lastmod>2020-03-17</lastmod>
+  </url>  <url>
+    <loc>https://pzux6d.coding-pages.com/springboot-redis</loc>
     <lastmod>2019-12-09</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/exception</loc>
+    <loc>https://pzux6d.coding-pages.com/exception</loc>
     <lastmod>2019-09-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/spring-mvc-ji-chu-ji-yu-xml-pei-zhi</loc>
+    <loc>https://pzux6d.coding-pages.com/hrm3</loc>
     <lastmod>2019-09-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/hrm3</loc>
+    <loc>https://pzux6d.coding-pages.com/hrm2</loc>
     <lastmod>2019-09-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/hrm2</loc>
-    <lastmod>2019-09-22</lastmod>
-  </url>  <url>
-    <loc>http://www.zhoulis.top/spring</loc>
+    <loc>https://pzux6d.coding-pages.com/spring</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/spring2</loc>
+    <loc>https://pzux6d.coding-pages.com/spring2</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/hrm1</loc>
+    <loc>https://pzux6d.coding-pages.com/hrm1</loc>
     <lastmod>2019-08-22</lastmod>
   </url>  <url>
-    <loc>http://www.zhoulis.top/mybatis-hump</loc>
+    <loc>https://pzux6d.coding-pages.com/mybatis-hump</loc>
     <lastmod>2019-08-18</lastmod>
-  </url>  <url>
-    <loc>http://www.zhoulis.top/mybatis-cache</loc>
-    <lastmod>2019-08-17</lastmod>
   </url>
 </urlset>
